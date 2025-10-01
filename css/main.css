@@ -15,6 +15,10 @@ html {
     font-family: "Montserrat", sans-serif;
     font-size: 60%;
 }
+body {
+    position: relative;
+    overflow-x: hidden;
+}
 main {
     background-color: var(--background-color);
     color: var(--font-color);
@@ -42,18 +46,18 @@ main {
     margin-bottom: 4em;
     
 }
-.collapsed{
+.sidebar.collapsed{
     min-width: 80px;
     width: 80px;
     overflow-x: hidden;
 }
-#uncollapse-btn {
+.sidebar #uncollapse-btn {
     display: none;
 }
 /* .show {
     display: inline;
 } */
-.collapsed .logo {
+.sidebar.collapsed .logo {
 display: none;
 }
 .sidebar header .logo {
@@ -71,7 +75,7 @@ display: none;
     flex-direction: column;
     gap: 2em;
 }
-.sidebar-nav ul li a {
+.sidebar-nav ul li a, .bottom-nav ul li a {
     text-decoration: none;
     font-size: 2rem;
     color: var(--font-color);
@@ -86,10 +90,10 @@ display: none;
 .sidebar-nav ul a.active {
     color: var(--primary-color);
 }
-.sidebar-nav ul a:hover {
+.sidebar-nav ul a:hover, .bottom-nav ul a:hover  {
     background-color: #212121;
 }
-.sidebar-nav ul li a span.material-symbols-outlined {
+.sidebar-nav ul li a span.material-symbols-outlined, .bottom-nav ul li a span.material-symbols-outlined {
     font-size: 3.5rem;
 }
 /* .sidebar-nav .dropdown a {
@@ -147,3 +151,36 @@ margin-bottom: 1em;
     font-size: 1.8rem;
     line-height: 1.6;
 }
+.bottom-nav {
+    background-color: var(--background-color);
+    color: var(--font-color);
+    display: flex;
+    padding: 1em;
+    gap: 3em;
+    position: fixed;
+    bottom: 0;
+    border-top: 2px solid #212121;
+    overflow-x: auto;
+    width: 100%;
+}
+.bottom-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2em;
+}
+.bottom-nav .dropdown {
+    position: relative;
+}
+.bottom-nav .dropdown-menu {
+    position: fixed;
+    bottom: 100%;
+    left: 0;
+    display: flex;
+    z-index: 999999999;
+}
+/* .bottom-nav .dropdown.open .dropdown-menu {
+    display: flex;
+    position: absolute;
+    bottom: 300px;
+    left: 300px;
+} */
